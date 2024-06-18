@@ -3,6 +3,7 @@ namespace sergienko_722_a_course_project
     public partial class Form1 : Form
     {
         private bool Mode;
+        private MajorWork MajorObject;
         public Form1()
         {
             InitializeComponent();
@@ -17,6 +18,10 @@ namespace sergienko_722_a_course_project
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            About A = new About(); // створення форми About
+            A.tAbout.Start();
+            A.ShowDialog();
+            MajorObject = new MajorWork();
             this.Mode = true;
         }
 
@@ -36,8 +41,12 @@ namespace sergienko_722_a_course_project
                 tClock.Stop();
                 bStart.Text = "Пуск";// зміна тексту на кнопці на "Пуск"
                 this.Mode = true;
+                MajorObject.Write(tblnput.Text);
+                MajorObject.Task();
+                label1.Text = MajorObject.Read();
             }
         }
+
 
         private void tblnput_KeyPress(object sender, KeyPressEventArgs e)
         {
