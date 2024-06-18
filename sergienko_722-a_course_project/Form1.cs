@@ -85,7 +85,9 @@ namespace sergienko_722_a_course_project
 
         private void новийToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            MajorObject.NewRec();
+            tblnput.Clear();// очистити вміст тексту
+            label1.Text = "";
         }
 
         private void вихідToolStripMenuItem_Click(object sender, EventArgs e)
@@ -103,7 +105,8 @@ namespace sergienko_722_a_course_project
         {
             if (sfdSave.ShowDialog() == DialogResult.OK)
             {
-                MajorObject.WriteSaveFileName(sfdSave.FileName); 
+                MajorObject.WriteSaveFileName(sfdSave.FileName);
+                MajorObject.Generator();
                 MajorObject.SaveToFile();
             }
         }
@@ -118,7 +121,7 @@ namespace sergienko_722_a_course_project
 
         private void проНакопичувачіToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            string[] Disks = System.IO.Directory.GetLogicalDrives(); 
+            string[] Disks = System.IO.Directory.GetLogicalDrives();
             string disk = "";
             for (int i = 0; i < Disks.Length; i++)
             {
@@ -127,16 +130,32 @@ namespace sergienko_722_a_course_project
                     System.IO.DriveInfo D = new System.IO.DriveInfo(Disks[i]);
                     disk += D.Name + "-" + D.TotalSize.ToString() + "-" + D.TotalFreeSpace.ToString()
                     + (char)13;
-                    
+
                 }
                 catch
                 {
-                    disk += Disks[i] + "- не готовий" + (char)13; 
-                   
-}
+                    disk += Disks[i] + "- не готовий" + (char)13;
+
+                }
             }
 
             MessageBox.Show(disk, "Накопичувачі");
+        }
+
+        private void зберегтиToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (MajorObject.SaveFileNameExists()) // задане ім’я файлу існує?
+                MajorObject.SaveToFile(); // зберегти дані в файл
+            else
+                зберегтиЯкToolStripMenuItem_Click(sender, e);
+        }
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (MajorObject.Modify)
+            if (MessageBox.Show("Дані не були збережені. Продовжити вихід?", "УВАГА",
+           MessageBoxButtons.YesNo) == DialogResult.No)
+            e.Cancel = true; 
         }
     }
 }

@@ -43,6 +43,7 @@
             зберегтиЯкToolStripMenuItem = new ToolStripMenuItem();
             toolStripSeparator3 = new ToolStripSeparator();
             вихідToolStripMenuItem = new ToolStripMenuItem();
+            файлToolStripMenuItem1 = new ToolStripMenuItem();
             роботаToolStripMenuItem = new ToolStripMenuItem();
             пускToolStripMenuItem = new ToolStripMenuItem();
             проНакопичувачіToolStripMenuItem = new ToolStripMenuItem();
@@ -98,7 +99,7 @@
             // 
             // файлToolStripMenuItem
             // 
-            файлToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { новийToolStripMenuItem, toolStripSeparator1, відкритиToolStripMenuItem, toolStripSeparator2, зберегтиToolStripMenuItem, зберегтиЯкToolStripMenuItem, toolStripSeparator3, вихідToolStripMenuItem });
+            файлToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { новийToolStripMenuItem, toolStripSeparator1, відкритиToolStripMenuItem, toolStripSeparator2, зберегтиToolStripMenuItem, зберегтиЯкToolStripMenuItem, toolStripSeparator3, вихідToolStripMenuItem, файлToolStripMenuItem1 });
             файлToolStripMenuItem.Name = "файлToolStripMenuItem";
             файлToolStripMenuItem.Size = new Size(51, 20);
             файлToolStripMenuItem.Text = "Файл ";
@@ -135,6 +136,7 @@
             зберегтиToolStripMenuItem.ShortcutKeys = Keys.F11;
             зберегтиToolStripMenuItem.Size = new Size(180, 22);
             зберегтиToolStripMenuItem.Text = "Зберегти ";
+            зберегтиToolStripMenuItem.Click += зберегтиToolStripMenuItem_Click;
             // 
             // зберегтиЯкToolStripMenuItem
             // 
@@ -157,6 +159,12 @@
             вихідToolStripMenuItem.Text = "Вихід";
             вихідToolStripMenuItem.Click += вихідToolStripMenuItem_Click;
             // 
+            // файлToolStripMenuItem1
+            // 
+            файлToolStripMenuItem1.Name = "файлToolStripMenuItem1";
+            файлToolStripMenuItem1.Size = new Size(180, 22);
+            файлToolStripMenuItem1.Text = "Файл ";
+            // 
             // роботаToolStripMenuItem
             // 
             роботаToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { пускToolStripMenuItem, проНакопичувачіToolStripMenuItem });
@@ -168,14 +176,14 @@
             // 
             пускToolStripMenuItem.Name = "пускToolStripMenuItem";
             пускToolStripMenuItem.ShortcutKeys = Keys.F4;
-            пускToolStripMenuItem.Size = new Size(180, 22);
+            пускToolStripMenuItem.Size = new Size(178, 22);
             пускToolStripMenuItem.Text = "Пуск";
             пускToolStripMenuItem.Click += bStart_Click;
             // 
             // проНакопичувачіToolStripMenuItem
             // 
             проНакопичувачіToolStripMenuItem.Name = "проНакопичувачіToolStripMenuItem";
-            проНакопичувачіToolStripMenuItem.Size = new Size(180, 22);
+            проНакопичувачіToolStripMenuItem.Size = new Size(178, 22);
             проНакопичувачіToolStripMenuItem.Text = "Про накопичувачі ";
             проНакопичувачіToolStripMenuItem.Click += проНакопичувачіToolStripMenuItem_Click;
             // 
@@ -193,9 +201,16 @@
             проПрограмуToolStripMenuItem.Text = "Про програму";
             проПрограмуToolStripMenuItem.Click += проПрограмуToolStripMenuItem_Click;
             // 
+            // sfdSave
+            // 
+            sfdSave.DefaultExt = "Mos";
+            sfdSave.Filter = "рабочие файли|*.Mos|Все файли|*.*";
+            // 
             // ofdOpen
             // 
+            ofdOpen.DefaultExt = "Mos";
             ofdOpen.FileName = "openFileDialog1";
+            ofdOpen.Filter = "рабочие файли|*.Mos|Все файли|*.*";
             // 
             // Form1
             // 
@@ -209,6 +224,7 @@
             MainMenuStrip = menuStrip1;
             Name = "Form1";
             Text = "Form1";
+            FormClosing += Form1_FormClosing;
             FormClosed += Form1_FormClosed;
             Load += Form1_Load;
             menuStrip1.ResumeLayout(false);
@@ -240,5 +256,6 @@
         private ToolStripSeparator toolStripSeparator3;
         private SaveFileDialog sfdSave;
         private OpenFileDialog ofdOpen;
+        private ToolStripMenuItem файлToolStripMenuItem1;
     }
 }
