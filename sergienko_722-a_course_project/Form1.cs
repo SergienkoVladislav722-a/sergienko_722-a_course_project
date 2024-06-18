@@ -1,3 +1,5 @@
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.TrackBar;
+
 namespace sergienko_722_a_course_project
 {
     public partial class Form1 : Form
@@ -36,6 +38,7 @@ namespace sergienko_722_a_course_project
                 tClock.Start();
                 bStart.Text = "Стоп"; // зміна тексту на кнопці на "Стоп"
                 this.Mode = false;
+                пускToolStripMenuItem.Text = "Стоп";
             }
             else
             {
@@ -46,6 +49,7 @@ namespace sergienko_722_a_course_project
                 MajorObject.Write(tblnput.Text);
                 MajorObject.Task();
                 label1.Text = MajorObject.Read();
+                пускToolStripMenuItem.Text = "Старт";
             }
         }
 
@@ -72,6 +76,66 @@ namespace sergienko_722_a_course_project
             string s;
             s = (System.DateTime.Now - MajorObject.GetTime()).ToString();
             MessageBox.Show(s, "Час роботи програми");
+        }
+
+        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+        }
+
+        private void новийToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void вихідToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void проПрограмуToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            About A = new About();
+            A.ShowDialog();
+        }
+
+        private void зберегтиЯкToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (sfdSave.ShowDialog() == DialogResult.OK)
+            {
+                MessageBox.Show(sfdSave.FileName);
+            }
+        }
+
+        private void відкритиToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (ofdOpen.ShowDialog() == DialogResult.OK)
+            {
+                MessageBox.Show(ofdOpen.FileName);
+            }
+        }
+
+        private void проНакопичувачіToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string[] Disks = System.IO.Directory.GetLogicalDrives(); 
+            string disk = "";
+            for (int i = 0; i < Disks.Length; i++)
+            {
+                try
+                {
+                    System.IO.DriveInfo D = new System.IO.DriveInfo(Disks[i]);
+                    disk += D.Name + "-" + D.TotalSize.ToString() + "-" + D.TotalFreeSpace.ToString()
+                    + (char)13;
+                    
+                }
+                catch
+                {
+                    disk += Disks[i] + "- не готовий" + (char)13; 
+                   
+}
+            }
+
+            MessageBox.Show(disk, "Накопичувачі");
         }
     }
 }

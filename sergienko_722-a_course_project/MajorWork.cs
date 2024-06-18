@@ -12,6 +12,20 @@ namespace sergienko_722_a_course_project
         private string Data; 
         private string Result;
 
+        private string SaveFileName;// ім’я файлу для запису
+        private string OpenFileName;// ім’я файлу для читання
+
+
+        public void WriteSaveFileName(string S)// метод запису даних в об'єкт
+        {
+            this.SaveFileName = S;// запам'ятати ім’я файлу для запису
+        }
+        public void WriteOpenFileName(string S)
+        {
+            this.OpenFileName = S;// запам'ятати ім’я файлу для відкриття
+        }
+       
+
         public void SetTime() 
         {
             this.TimeBegin = System.DateTime.Now;
