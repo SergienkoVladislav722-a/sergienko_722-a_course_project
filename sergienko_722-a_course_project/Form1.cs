@@ -22,10 +22,10 @@ namespace sergienko_722_a_course_project
         {
             MajorObject = new MajorWork();
             MajorObject.SetTime();
+            MajorObject.Modify = false;// заборона запису
             About A = new About(); // створення форми About
             A.tAbout.Start();
             A.ShowDialog();
-            MajorObject = new MajorWork();
             this.Mode = true;
         }
 
@@ -103,7 +103,8 @@ namespace sergienko_722_a_course_project
         {
             if (sfdSave.ShowDialog() == DialogResult.OK)
             {
-                MessageBox.Show(sfdSave.FileName);
+                MajorObject.WriteSaveFileName(sfdSave.FileName); 
+                MajorObject.SaveToFile();
             }
         }
 
