@@ -24,6 +24,58 @@ namespace sergienko_722_a_course_project
             this.SaveFileName = S;// запам'ятати ім’я файлу для запису
         }
 
+        public void Find(string Num)
+        {
+            int N;
+            try
+            {
+                N = Convert.ToInt16(Num);
+            }
+            catch
+            {
+                MessageBox.Show("помилка пошукового запиту");
+                return;
+            }
+            try
+            {
+                if (!File.Exists(this.OpenFileName))
+                {
+                    MessageBox.Show("файлу немає");
+                    return;
+                }
+                Stream S;
+                S = File.Open(this.OpenFileName, FileMode.Open);
+                Buffer D;
+                object O;
+                BinaryFormatter BF = new BinaryFormatter();
+                while (S.Position < S.Length)
+                {
+                    O = BF.Deserialize(S);
+                    D = O as Buffer;
+                    if (D == null) break;
+                    if (D.Key == N)
+
+                    {
+                        string ST;
+                        ST = "Запис містить:" + (char)13 + "No" + Num + "Вхідні дані:" + D.Data + "Результат:" + D.Result;
+                        MessageBox.Show(ST, "Запис знайдена");
+                        S.Close();
+                        return;
+                    }
+
+                }
+                S.Close();
+                MessageBox.Show("Запис не знайдена");
+            }
+            catch
+            {
+                MessageBox.Show("Помилка файлу");
+
+            }
+
+        }
+
+
         public void ReadFromFile(System.Windows.Forms.DataGridView DG) // зчитування з файлу
         {
             try
@@ -38,14 +90,27 @@ namespace sergienko_722_a_course_project
                 Buffer D;
                 object O; // буферна змінна для контролю формату
                 BinaryFormatter BF = new BinaryFormatter(); // створення об'єкту для форматування
+                System.Data.DataTable MT = new System.Data.DataTable();
+                System.Data.DataColumn cKey = new System.Data.DataColumn("Ключ");
+                System.Data.DataColumn cInput = new System.Data.DataColumn("Вхідні дані");
+                System.Data.DataColumn cResult = new System.Data.DataColumn("Результат");
+                MT.Columns.Add(cKey);
+                MT.Columns.Add(cInput);
+                MT.Columns.Add(cResult);
 
                 while (S.Position < S.Length)
                 {
                     O = BF.Deserialize(S); 
                     D = O as Buffer;
                     if (D == null) break;
-                    
+                    System.Data.DataRow MR;
+                    MR = MT.NewRow();
+                    MR["Ключ"] = D.Key; 
+                    MR["Вхідні дані"] = D.Data;
+                    MR["Результат"] = D.Result;
+                    MT.Rows.Add(MR);
                 }
+                DG.DataSource = MT;
                 S.Close(); 
             }
             catch
