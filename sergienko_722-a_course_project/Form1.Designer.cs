@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             label1 = new Label();
             bStart = new Button();
             tblnput = new TextBox();
@@ -54,14 +55,21 @@
             dgwOpen = new DataGridView();
             bSearch = new Button();
             tbSearch = new TextBox();
+            toolTip1 = new ToolTip(components);
+            tabControl1 = new TabControl();
+            tabPage1 = new TabPage();
+            statusStrip1 = new StatusStrip();
+            tabPage2 = new TabPage();
             menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgwOpen).BeginInit();
+            tabControl1.SuspendLayout();
+            tabPage1.SuspendLayout();
             SuspendLayout();
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(341, 134);
+            label1.Location = new Point(337, 28);
             label1.Name = "label1";
             label1.Size = new Size(38, 15);
             label1.TabIndex = 0;
@@ -69,9 +77,9 @@
             // 
             // bStart
             // 
-            bStart.Location = new Point(316, 266);
+            bStart.Location = new Point(302, 121);
             bStart.Name = "bStart";
-            bStart.Size = new Size(75, 23);
+            bStart.Size = new Size(108, 30);
             bStart.TabIndex = 1;
             bStart.Text = "Пуск";
             bStart.UseVisualStyleBackColor = true;
@@ -80,9 +88,9 @@
             // tblnput
             // 
             tblnput.Enabled = false;
-            tblnput.Location = new Point(272, 186);
+            tblnput.Location = new Point(219, 75);
             tblnput.Name = "tblnput";
-            tblnput.Size = new Size(174, 23);
+            tblnput.Size = new Size(282, 23);
             tblnput.TabIndex = 2;
             tblnput.KeyPress += tblnput_KeyPress;
             // 
@@ -215,19 +223,20 @@
             ofdOpen.DefaultExt = "Mos";
             ofdOpen.FileName = "openFileDialog1";
             ofdOpen.Filter = "рабочие файли|*.Mos|Все файли|*.*";
+            ofdOpen.FileOk += ofdOpen_FileOk;
             // 
             // dgwOpen
             // 
             dgwOpen.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgwOpen.Location = new Point(489, 106);
+            dgwOpen.Location = new Point(0, 343);
             dgwOpen.Name = "dgwOpen";
             dgwOpen.RowTemplate.Height = 25;
-            dgwOpen.Size = new Size(286, 206);
+            dgwOpen.Size = new Size(10, 12);
             dgwOpen.TabIndex = 4;
             // 
             // bSearch
             // 
-            bSearch.Location = new Point(584, 342);
+            bSearch.Location = new Point(654, 71);
             bSearch.Name = "bSearch";
             bSearch.Size = new Size(75, 23);
             bSearch.TabIndex = 5;
@@ -237,23 +246,64 @@
             // 
             // tbSearch
             // 
-            tbSearch.Location = new Point(545, 381);
+            tbSearch.Location = new Point(617, 109);
             tbSearch.Name = "tbSearch";
             tbSearch.Size = new Size(146, 23);
             tbSearch.TabIndex = 6;
+            // 
+            // tabControl1
+            // 
+            tabControl1.Controls.Add(tabPage1);
+            tabControl1.Controls.Add(tabPage2);
+            tabControl1.Location = new Point(12, 27);
+            tabControl1.Name = "tabControl1";
+            tabControl1.SelectedIndex = 0;
+            tabControl1.Size = new Size(788, 411);
+            tabControl1.TabIndex = 7;
+            // 
+            // tabPage1
+            // 
+            tabPage1.BackgroundImage = (Image)resources.GetObject("tabPage1.BackgroundImage");
+            tabPage1.Controls.Add(dgwOpen);
+            tabPage1.Controls.Add(statusStrip1);
+            tabPage1.Controls.Add(bStart);
+            tabPage1.Controls.Add(label1);
+            tabPage1.Controls.Add(tblnput);
+            tabPage1.Location = new Point(4, 24);
+            tabPage1.Name = "tabPage1";
+            tabPage1.Padding = new Padding(3);
+            tabPage1.Size = new Size(780, 383);
+            tabPage1.TabIndex = 0;
+            tabPage1.Text = "Ведення даних";
+            tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // statusStrip1
+            // 
+            statusStrip1.Location = new Point(3, 358);
+            statusStrip1.Name = "statusStrip1";
+            statusStrip1.Size = new Size(774, 22);
+            statusStrip1.TabIndex = 3;
+            statusStrip1.Text = "statusStrip1";
+            // 
+            // tabPage2
+            // 
+            tabPage2.Location = new Point(4, 24);
+            tabPage2.Name = "tabPage2";
+            tabPage2.Padding = new Padding(3);
+            tabPage2.Size = new Size(768, 383);
+            tabPage2.TabIndex = 1;
+            tabPage2.Text = "Робота з файлами";
+            tabPage2.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(tabControl1);
             Controls.Add(tbSearch);
-            Controls.Add(bSearch);
-            Controls.Add(dgwOpen);
-            Controls.Add(tblnput);
-            Controls.Add(bStart);
-            Controls.Add(label1);
             Controls.Add(menuStrip1);
+            Controls.Add(bSearch);
             MainMenuStrip = menuStrip1;
             Name = "Form1";
             Text = "Form1";
@@ -263,6 +313,9 @@
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dgwOpen).EndInit();
+            tabControl1.ResumeLayout(false);
+            tabPage1.ResumeLayout(false);
+            tabPage1.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -294,5 +347,10 @@
         private DataGridView dgwOpen;
         private Button bSearch;
         private TextBox tbSearch;
+        private ToolTip toolTip1;
+        private TabControl tabControl1;
+        private TabPage tabPage1;
+        private TabPage tabPage2;
+        private StatusStrip statusStrip1;
     }
 }
