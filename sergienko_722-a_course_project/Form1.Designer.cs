@@ -47,7 +47,12 @@
             файлToolStripMenuItem1 = new ToolStripMenuItem();
             роботаToolStripMenuItem = new ToolStripMenuItem();
             пускToolStripMenuItem = new ToolStripMenuItem();
+            toolStripSeparator4 = new ToolStripSeparator();
             проНакопичувачіToolStripMenuItem = new ToolStripMenuItem();
+            текстовіФайлиToolStripMenuItem = new ToolStripSeparator();
+            текстовіФайлиToolStripMenuItem1 = new ToolStripMenuItem();
+            зберегтиToolStripMenuItem1 = new ToolStripMenuItem();
+            зберегтиЯкToolStripMenuItem1 = new ToolStripMenuItem();
             довідкаToolStripMenuItem = new ToolStripMenuItem();
             проПрограмуToolStripMenuItem = new ToolStripMenuItem();
             sfdSave = new SaveFileDialog();
@@ -74,10 +79,13 @@
             Peek_q = new Button();
             Dequeue = new Button();
             Enqueue = new Button();
+            richTextBox1 = new RichTextBox();
+            відкритиToolStripMenuItem1 = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgwOpen).BeginInit();
             tabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
+            tabPage2.SuspendLayout();
             tabPage3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)splitContainer1).BeginInit();
             splitContainer1.Panel1.SuspendLayout();
@@ -139,33 +147,33 @@
             // 
             новийToolStripMenuItem.Name = "новийToolStripMenuItem";
             новийToolStripMenuItem.ShortcutKeys = Keys.F9;
-            новийToolStripMenuItem.Size = new Size(170, 22);
+            новийToolStripMenuItem.Size = new Size(180, 22);
             новийToolStripMenuItem.Text = "Новий";
             новийToolStripMenuItem.Click += новийToolStripMenuItem_Click;
             // 
             // toolStripSeparator1
             // 
             toolStripSeparator1.Name = "toolStripSeparator1";
-            toolStripSeparator1.Size = new Size(167, 6);
+            toolStripSeparator1.Size = new Size(177, 6);
             // 
             // відкритиToolStripMenuItem
             // 
             відкритиToolStripMenuItem.Name = "відкритиToolStripMenuItem";
             відкритиToolStripMenuItem.ShortcutKeys = Keys.F10;
-            відкритиToolStripMenuItem.Size = new Size(170, 22);
+            відкритиToolStripMenuItem.Size = new Size(180, 22);
             відкритиToolStripMenuItem.Text = "Відкрити";
             відкритиToolStripMenuItem.Click += відкритиToolStripMenuItem_Click;
             // 
             // toolStripSeparator2
             // 
             toolStripSeparator2.Name = "toolStripSeparator2";
-            toolStripSeparator2.Size = new Size(167, 6);
+            toolStripSeparator2.Size = new Size(177, 6);
             // 
             // зберегтиToolStripMenuItem
             // 
             зберегтиToolStripMenuItem.Name = "зберегтиToolStripMenuItem";
             зберегтиToolStripMenuItem.ShortcutKeys = Keys.F11;
-            зберегтиToolStripMenuItem.Size = new Size(170, 22);
+            зберегтиToolStripMenuItem.Size = new Size(180, 22);
             зберегтиToolStripMenuItem.Text = "Зберегти ";
             зберегтиToolStripMenuItem.Click += зберегтиToolStripMenuItem_Click;
             // 
@@ -173,32 +181,32 @@
             // 
             зберегтиЯкToolStripMenuItem.Name = "зберегтиЯкToolStripMenuItem";
             зберегтиЯкToolStripMenuItem.ShortcutKeys = Keys.F12;
-            зберегтиЯкToolStripMenuItem.Size = new Size(170, 22);
+            зберегтиЯкToolStripMenuItem.Size = new Size(180, 22);
             зберегтиЯкToolStripMenuItem.Text = "Зберегти як..";
             зберегтиЯкToolStripMenuItem.Click += зберегтиЯкToolStripMenuItem_Click;
             // 
             // toolStripSeparator3
             // 
             toolStripSeparator3.Name = "toolStripSeparator3";
-            toolStripSeparator3.Size = new Size(167, 6);
+            toolStripSeparator3.Size = new Size(177, 6);
             // 
             // вихідToolStripMenuItem
             // 
             вихідToolStripMenuItem.Name = "вихідToolStripMenuItem";
             вихідToolStripMenuItem.ShortcutKeys = Keys.F8;
-            вихідToolStripMenuItem.Size = new Size(170, 22);
+            вихідToolStripMenuItem.Size = new Size(180, 22);
             вихідToolStripMenuItem.Text = "Вихід";
             вихідToolStripMenuItem.Click += вихідToolStripMenuItem_Click;
             // 
             // файлToolStripMenuItem1
             // 
             файлToolStripMenuItem1.Name = "файлToolStripMenuItem1";
-            файлToolStripMenuItem1.Size = new Size(170, 22);
+            файлToolStripMenuItem1.Size = new Size(180, 22);
             файлToolStripMenuItem1.Text = "Файл ";
             // 
             // роботаToolStripMenuItem
             // 
-            роботаToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { пускToolStripMenuItem, проНакопичувачіToolStripMenuItem });
+            роботаToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { пускToolStripMenuItem, toolStripSeparator4, проНакопичувачіToolStripMenuItem, текстовіФайлиToolStripMenuItem, текстовіФайлиToolStripMenuItem1 });
             роботаToolStripMenuItem.Name = "роботаToolStripMenuItem";
             роботаToolStripMenuItem.Size = new Size(58, 20);
             роботаToolStripMenuItem.Text = "Робота";
@@ -207,16 +215,47 @@
             // 
             пускToolStripMenuItem.Name = "пускToolStripMenuItem";
             пускToolStripMenuItem.ShortcutKeys = Keys.F4;
-            пускToolStripMenuItem.Size = new Size(178, 22);
+            пускToolStripMenuItem.Size = new Size(180, 22);
             пускToolStripMenuItem.Text = "Пуск";
             пускToolStripMenuItem.Click += bStart_Click;
+            // 
+            // toolStripSeparator4
+            // 
+            toolStripSeparator4.Name = "toolStripSeparator4";
+            toolStripSeparator4.Size = new Size(177, 6);
             // 
             // проНакопичувачіToolStripMenuItem
             // 
             проНакопичувачіToolStripMenuItem.Name = "проНакопичувачіToolStripMenuItem";
-            проНакопичувачіToolStripMenuItem.Size = new Size(178, 22);
+            проНакопичувачіToolStripMenuItem.Size = new Size(180, 22);
             проНакопичувачіToolStripMenuItem.Text = "Про накопичувачі ";
             проНакопичувачіToolStripMenuItem.Click += проНакопичувачіToolStripMenuItem_Click;
+            // 
+            // текстовіФайлиToolStripMenuItem
+            // 
+            текстовіФайлиToolStripMenuItem.Name = "текстовіФайлиToolStripMenuItem";
+            текстовіФайлиToolStripMenuItem.Size = new Size(177, 6);
+            // 
+            // текстовіФайлиToolStripMenuItem1
+            // 
+            текстовіФайлиToolStripMenuItem1.DropDownItems.AddRange(new ToolStripItem[] { зберегтиToolStripMenuItem1, зберегтиЯкToolStripMenuItem1, відкритиToolStripMenuItem1 });
+            текстовіФайлиToolStripMenuItem1.Name = "текстовіФайлиToolStripMenuItem1";
+            текстовіФайлиToolStripMenuItem1.Size = new Size(180, 22);
+            текстовіФайлиToolStripMenuItem1.Text = "Текстові файли ";
+            // 
+            // зберегтиToolStripMenuItem1
+            // 
+            зберегтиToolStripMenuItem1.Name = "зберегтиToolStripMenuItem1";
+            зберегтиToolStripMenuItem1.Size = new Size(180, 22);
+            зберегтиToolStripMenuItem1.Text = "Зберегти ";
+            зберегтиToolStripMenuItem1.Click += зберегтиToolStripMenuItem1_Click;
+            // 
+            // зберегтиЯкToolStripMenuItem1
+            // 
+            зберегтиЯкToolStripMenuItem1.Name = "зберегтиЯкToolStripMenuItem1";
+            зберегтиЯкToolStripMenuItem1.Size = new Size(180, 22);
+            зберегтиЯкToolStripMenuItem1.Text = "Зберегти як..";
+            зберегтиЯкToolStripMenuItem1.Click += зберегтиЯкToolStripMenuItem1_Click;
             // 
             // довідкаToolStripMenuItem
             // 
@@ -247,15 +286,15 @@
             // dgwOpen
             // 
             dgwOpen.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgwOpen.Location = new Point(0, 343);
+            dgwOpen.Location = new Point(6, 6);
             dgwOpen.Name = "dgwOpen";
             dgwOpen.RowTemplate.Height = 25;
-            dgwOpen.Size = new Size(10, 12);
+            dgwOpen.Size = new Size(374, 209);
             dgwOpen.TabIndex = 4;
             // 
             // bSearch
             // 
-            bSearch.Location = new Point(654, 71);
+            bSearch.Location = new Point(592, 37);
             bSearch.Name = "bSearch";
             bSearch.Size = new Size(75, 23);
             bSearch.TabIndex = 5;
@@ -265,7 +304,7 @@
             // 
             // tbSearch
             // 
-            tbSearch.Location = new Point(617, 109);
+            tbSearch.Location = new Point(557, 80);
             tbSearch.Name = "tbSearch";
             tbSearch.Size = new Size(146, 23);
             tbSearch.TabIndex = 6;
@@ -278,13 +317,12 @@
             tabControl1.Location = new Point(12, 27);
             tabControl1.Name = "tabControl1";
             tabControl1.SelectedIndex = 0;
-            tabControl1.Size = new Size(788, 411);
+            tabControl1.Size = new Size(776, 411);
             tabControl1.TabIndex = 7;
             // 
             // tabPage1
             // 
             tabPage1.BackgroundImage = (Image)resources.GetObject("tabPage1.BackgroundImage");
-            tabPage1.Controls.Add(dgwOpen);
             tabPage1.Controls.Add(statusStrip1);
             tabPage1.Controls.Add(bStart);
             tabPage1.Controls.Add(label1);
@@ -292,7 +330,7 @@
             tabPage1.Location = new Point(4, 24);
             tabPage1.Name = "tabPage1";
             tabPage1.Padding = new Padding(3);
-            tabPage1.Size = new Size(780, 383);
+            tabPage1.Size = new Size(768, 383);
             tabPage1.TabIndex = 0;
             tabPage1.Text = "Ведення даних";
             tabPage1.UseVisualStyleBackColor = true;
@@ -301,16 +339,20 @@
             // 
             statusStrip1.Location = new Point(3, 358);
             statusStrip1.Name = "statusStrip1";
-            statusStrip1.Size = new Size(774, 22);
+            statusStrip1.Size = new Size(762, 22);
             statusStrip1.TabIndex = 3;
             statusStrip1.Text = "statusStrip1";
             // 
             // tabPage2
             // 
+            tabPage2.Controls.Add(richTextBox1);
+            tabPage2.Controls.Add(dgwOpen);
+            tabPage2.Controls.Add(tbSearch);
+            tabPage2.Controls.Add(bSearch);
             tabPage2.Location = new Point(4, 24);
             tabPage2.Name = "tabPage2";
             tabPage2.Padding = new Padding(3);
-            tabPage2.Size = new Size(780, 383);
+            tabPage2.Size = new Size(768, 383);
             tabPage2.TabIndex = 1;
             tabPage2.Text = "Робота з файлами";
             tabPage2.UseVisualStyleBackColor = true;
@@ -320,7 +362,7 @@
             tabPage3.Controls.Add(splitContainer1);
             tabPage3.Location = new Point(4, 24);
             tabPage3.Name = "tabPage3";
-            tabPage3.Size = new Size(780, 383);
+            tabPage3.Size = new Size(768, 383);
             tabPage3.TabIndex = 2;
             tabPage3.Text = "Стек/Черга";
             tabPage3.UseVisualStyleBackColor = true;
@@ -351,8 +393,8 @@
             splitContainer1.Panel2.Controls.Add(Peek_q);
             splitContainer1.Panel2.Controls.Add(Dequeue);
             splitContainer1.Panel2.Controls.Add(Enqueue);
-            splitContainer1.Size = new Size(780, 383);
-            splitContainer1.SplitterDistance = 372;
+            splitContainer1.Size = new Size(768, 383);
+            splitContainer1.SplitterDistance = 366;
             splitContainer1.TabIndex = 0;
             // 
             // StackText
@@ -465,15 +507,28 @@
             Enqueue.UseVisualStyleBackColor = true;
             Enqueue.Click += Enqueue_Click;
             // 
+            // richTextBox1
+            // 
+            richTextBox1.Location = new Point(414, 141);
+            richTextBox1.Name = "richTextBox1";
+            richTextBox1.Size = new Size(323, 105);
+            richTextBox1.TabIndex = 7;
+            richTextBox1.Text = "";
+            // 
+            // відкритиToolStripMenuItem1
+            // 
+            відкритиToolStripMenuItem1.Name = "відкритиToolStripMenuItem1";
+            відкритиToolStripMenuItem1.Size = new Size(180, 22);
+            відкритиToolStripMenuItem1.Text = "Відкрити";
+            відкритиToolStripMenuItem1.Click += відкритиToolStripMenuItem1_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
             Controls.Add(tabControl1);
-            Controls.Add(tbSearch);
             Controls.Add(menuStrip1);
-            Controls.Add(bSearch);
             MainMenuStrip = menuStrip1;
             Name = "Form1";
             Text = "Form1";
@@ -486,6 +541,8 @@
             tabControl1.ResumeLayout(false);
             tabPage1.ResumeLayout(false);
             tabPage1.PerformLayout();
+            tabPage2.ResumeLayout(false);
+            tabPage2.PerformLayout();
             tabPage3.ResumeLayout(false);
             splitContainer1.Panel1.ResumeLayout(false);
             splitContainer1.Panel1.PerformLayout();
@@ -543,5 +600,12 @@
         private Label QueueText;
         private Label LabelQueue;
         private TextBox Queuetb;
+        private ToolStripSeparator toolStripSeparator4;
+        private ToolStripSeparator текстовіФайлиToolStripMenuItem;
+        private ToolStripMenuItem текстовіФайлиToolStripMenuItem1;
+        private ToolStripMenuItem зберегтиToolStripMenuItem1;
+        private ToolStripMenuItem зберегтиЯкToolStripMenuItem1;
+        private ToolStripMenuItem відкритиToolStripMenuItem1;
+        private RichTextBox richTextBox1;
     }
 }
